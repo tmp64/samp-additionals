@@ -42,6 +42,12 @@ SendClientMessage(playerid, -1, buffer);
 Output:
 Current FormatUnixDate: Sun Jan 29 22:00:00 2017
 ```
+
+## Building guide
+Windows - download the source files and use Microsoft Visual Studio 2015 (older versions may work, but I use this one) to compile.
+
+Linux - `git clone` the repository and then use `make`. Don't forget to install g++:i386 and i386 libraries.
+
 ## TODO
 * More functions
 * Add timezone support
