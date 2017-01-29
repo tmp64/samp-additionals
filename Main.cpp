@@ -1,6 +1,5 @@
-#if !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__)
+#if !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__) && defined(__linux__)
 #define LINUX
-#define __linux__
 #endif // !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__)
 
 #include <stddef.h>
