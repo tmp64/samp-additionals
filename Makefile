@@ -7,7 +7,7 @@ ifndef GXX
 	GXX = g++
 endif
 
-COMPILE_FLAGS = -c -fPIC -m32 -O3 -w -Wall -ISDK/amx/ -DLINUX
+COMPILE_FLAGS = -c -fPIC -m32 -O3 -w -Wall -ISDK/amx/ -DLINUX -std=c++11
 LIBRARIES = -lrt
 
 OUTFILE = bin/samp-additionals.so
