@@ -1,9 +1,14 @@
+#if !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__) && defined(__linux__)
+#define LINUX
+#endif // !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__)
+
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include <errno.h>
-#include "SDK\amx\amx.h"
-#include "SDK\plugincommon.h"
+#include "SDK/amx/amx.h"
+#include "SDK/plugincommon.h"
 
 typedef void(*logprintf_t)(char* format, ...);
 
@@ -55,7 +60,7 @@ cell AMX_NATIVE_CALL GetUnixDate(AMX* amx, cell* params)
 }
 
 //Converts UNIX timestamp to foramtted string.
-//PAWN native: native FormatUnixDate(output[], len, const format[], unix);
+//PAWN native: native FormatUnixDate(output[], len, const format[], unixtime);
 cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 {
 	cell* addr[2] = {
@@ -72,9 +77,8 @@ cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 	len++;
 
 	// Convert UNXI timestamp to tm structure.
-	time_t unix_time = params[1];
-	struct tm time;
-	localtime_s(&time, &unix_time);
+	time_t unix_time = params[4];
+	struct tm* time = localtime(&unix_time);
 
 	/*if (localtime_s(&time, &unix_time) == NULL)
 	{
@@ -88,7 +92,7 @@ cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 	amx_GetString(format, addr[1], 0, len);
 
 	// Convert struct tm to string
-	strftime(buf, params[2], format, &time);
+	strftime(buf, params[2], format, time);
 
 	// Set the string
 	amx_SetString(addr[0], buf, 0, 0, params[2]);
@@ -115,7 +119,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData)
 
 PLUGIN_EXPORT void PLUGIN_CALL Unload()
 {
-	logprintf(" * SAMP Additionals plug was unloaded.");
+	logprintf(" * SAMP Additionals plug-in was unloaded.");
 }
 
 AMX_NATIVE_INFO PluginNatives[] =
