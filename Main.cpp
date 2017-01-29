@@ -78,8 +78,7 @@ cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 
 	// Convert UNXI timestamp to tm structure.
 	time_t unix_time = params[1];
-	struct tm time;
-	localtime_s(&time, &unix_time);
+	struct tm* time = localtime(&unix_time);
 
 	/*if (localtime_s(&time, &unix_time) == NULL)
 	{
@@ -93,7 +92,7 @@ cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 	amx_GetString(format, addr[1], 0, len);
 
 	// Convert struct tm to string
-	strftime(buf, params[2], format, &time);
+	strftime(buf, params[2], format, time);
 
 	// Set the string
 	amx_SetString(addr[0], buf, 0, 0, params[2]);

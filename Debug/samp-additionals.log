@@ -1,11 +1,8 @@
 ﻿  Main.cpp
 e:\projects\samp-additionals\main.cpp(34): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\time.h(505): note: see declaration of 'localtime'
-  Generating Code...
-  Compiling...
-  amxplugin.cpp
-  Generating Code...
-     Creating library E:\projects\samp-additionals\Debug\samp-additionals.lib and object E:\projects\samp-additionals\Debug\samp-additionals.exp
+e:\projects\samp-additionals\main.cpp(81): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\time.h(505): note: see declaration of 'localtime'
   samp-additionals.vcxproj -> E:\projects\samp-additionals\Debug\samp-additionals.dll
   samp-additionals.vcxproj -> E:\projects\samp-additionals\Debug\samp-additionals.pdb (Full PDB)
   E:\projects\samp-additionals\Debug\samp-additionals.dll
