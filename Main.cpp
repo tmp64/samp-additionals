@@ -60,7 +60,7 @@ cell AMX_NATIVE_CALL GetUnixDate(AMX* amx, cell* params)
 }
 
 //Converts UNIX timestamp to foramtted string.
-//PAWN native: native FormatUnixDate(output[], len, const format[], unix);
+//PAWN native: native FormatUnixDate(output[], len, const format[], unixtime);
 cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 {
 	cell* addr[2] = {
@@ -77,7 +77,7 @@ cell AMX_NATIVE_CALL FormatUnixDate(AMX* amx, cell* params)
 	len++;
 
 	// Convert UNXI timestamp to tm structure.
-	time_t unix_time = params[1];
+	time_t unix_time = params[4];
 	struct tm* time = localtime(&unix_time);
 
 	/*if (localtime_s(&time, &unix_time) == NULL)
@@ -119,7 +119,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData)
 
 PLUGIN_EXPORT void PLUGIN_CALL Unload()
 {
-	logprintf(" * SAMP Additionals plug was unloaded.");
+	logprintf(" * SAMP Additionals plug-in was unloaded.");
 }
 
 AMX_NATIVE_INFO PluginNatives[] =
