@@ -1,9 +1,14 @@
+#if !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__)
+#define LINUX
+#define __linux__
+#endif // !defined(WIN32) && !defined(_WIN32) && !defined(__WIN32__)
+
 #include <stddef.h>
 #include <stdlib.h>
 #include <time.h>
 #include <errno.h>
-#include "SDK\amx\amx.h"
-#include "SDK\plugincommon.h"
+#include "SDK/amx/amx.h"
+#include "SDK/plugincommon.h"
 
 typedef void(*logprintf_t)(char* format, ...);
 
