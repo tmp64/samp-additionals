@@ -47,15 +47,27 @@ cell AMX_NATIVE_CALL GetUnixDate(AMX* amx, cell* params)
 	amx_GetAddr(amx, params[5], &addr[3]);
 	amx_GetAddr(amx, params[6], &addr[4]);
 	amx_GetAddr(amx, params[7], &addr[5]);
-
+	
 	// Set the time
-	*addr[0] = time->tm_year + 1900;	// Year
-	*addr[1] = time->tm_mon + 1;		// Month
-	*addr[2] = time->tm_mday;			// Day
-	*addr[3] = time->tm_hour;			// Hours
-	*addr[4] = time->tm_min;			// Minutes
-	*addr[5] = time->tm_sec;			// Seconds
-
+	if(*addr[0] != nullptr){
+		*addr[0] = time->tm_year + 1900;	// Year
+	}
+	if(*addr[1] != nullptr){
+		*addr[1] = time->tm_mon + 1;		// Month
+	}
+	if(*addr[2] != nullptr){
+		*addr[2] = time->tm_mday;			// Day
+	}
+	if(*addr[3] != nullptr){
+		*addr[3] = time->tm_hour;			// Hours
+	}
+	if(*addr[4] != nullptr){
+		*addr[4] = time->tm_min;			// Minutes
+	}
+	if(*addr[5] != nullptr){
+		*addr[5] = time->tm_sec;			// Seconds
+	}
+	
 	return 1;
 }
 

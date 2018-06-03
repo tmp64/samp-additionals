@@ -57,4 +57,4 @@ Linux - `git clone` the repository and then use `make`. Don't forget to install 
 * Google the Search Engine
 * Stack Overflow
 * SA-MP Development Team - for making the game
-* Timerfix plugin - I used its Makfile :D
+* Timerfix plugin - I used its Makefile :D
